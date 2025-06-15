@@ -8,5 +8,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  protected title = 'desafio';
+  protected title = 'desafio-tecnico_inchurch_desenvolvedor-front-end';
 }

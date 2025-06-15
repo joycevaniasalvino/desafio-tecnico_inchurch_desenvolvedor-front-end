@@ -1,0 +1,107 @@
+*{
+  margin: 0;
+  font-size: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-around;
+
+  height: 100dvh;
+}
+
+.box-logo{
+  margin: auto 0;
+}
+
+.box-logo > img{
+  width: 428px;
+}
+
+.box-formLogin{
+  margin: auto 0;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.box-formLogin > h1 {
+  font-size: 48px;
+  text-align: center;
+
+  padding-bottom: 50px;
+}
+
+.box-formLogin > h1, div > label, div > p{
+  color: #223744;
+  font-weight: 700;
+}
+
+a {
+  color: #86BD00;
+  font-size: 700;
+
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+div > input {
+  height: 61px;
+  width: 326px;
+  padding: 10px;
+  margin: 11px 0;
+  border-radius: 10px;
+  border: none;
+
+  background-color: #F2F2F2;
+}
+
+input::placeholder{
+  color: #91A0AA;
+}
+
+.box-senha{
+  position: relative;
+}
+
+span {
+  position: absolute;
+  right: 10px;
+  top: 50px
+}
+
+.esqueceuSenha{
+  text-align: end;
+}
+
+/* .box-btn{
+  display: flex;
+  ju
+} */
+
+div > button {
+  width: 132px;
+  padding: 11px 39px;
+
+  margin: 50px auto;
+
+  background-color: #86BD00;
+  border-radius: 10px;
+  border: none;
+
+  color: #ffffff;
+
+
+}
+
+.box-cadastrar{
+  display: flex;
+  justify-content: space-around;
+}
