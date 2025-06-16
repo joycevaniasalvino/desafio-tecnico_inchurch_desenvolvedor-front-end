@@ -103,10 +103,6 @@ div > button {
 
 }
 
-div > button:disabled{
-  cursor: not-allowed;
-}
-
 .box-login{
   display: flex;
   justify-content: space-around;

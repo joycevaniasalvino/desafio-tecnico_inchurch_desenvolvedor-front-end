@@ -102,10 +102,6 @@ div > button {
   cursor: pointer;
 }
 
-div > button:disabled{
-  cursor: not-allowed;
-}
-
 .box-cadastrar{
   display: flex;
   justify-content: space-around;
