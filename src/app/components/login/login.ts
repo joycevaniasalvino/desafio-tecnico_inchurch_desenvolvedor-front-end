@@ -35,16 +35,28 @@ export class Login {
       return;
     }
 
-    const isLocalData = localStorage.getItem("angular18Local");
+    const isLocalData = localStorage.getItem("usuariosCadastrados");
 
     if(isLocalData !== null){
       const users = JSON.parse(isLocalData);
+
+      const usuarioEncontrado = users.find(
+          (user: any) =>
+            user.email === this.userLoginObj.email &&
+            user.senha === this.userLoginObj.senha
+        );
 
       const isUsuarioEmailEncontrado : boolean = users.some((user: any) => user.email === this.userLoginObj.email)
 
       if(isUsuarioEmailEncontrado){
         if(users.some((user: any) => user.senha === this.userLoginObj.senha)){
           this.toastr.success("Login realizado!")
+
+          localStorage.setItem(
+            'usuarioLogado',
+            JSON.stringify(usuarioEncontrado)
+          );
+
           this.router.navigate(['/events'])
         }else {
         this.toastr.error("Senha incorreta.");

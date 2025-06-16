@@ -3,6 +3,8 @@ import { Home } from './components/home/home';
 import { Login } from './components/login/login';
 import { Events } from './components/events/events';
 import { Cadastro } from './components/cadastro/cadastro';
+import { authGuard } from './guards/auth-guard';
+import { loggedInGuard } from './guards/logged-in-guard';
 
 export const routes: Routes = [
   {
@@ -13,7 +15,8 @@ export const routes: Routes = [
   {
     path: 'login',
     component: Login,
-    data: { modo: 'login' }
+    data: { modo: 'login' },
+    canActivate: [loggedInGuard]
   },
   {
     path: 'cadastro',
@@ -26,7 +29,8 @@ export const routes: Routes = [
     children: [
       {
         path: 'events',
-        component: Events
+        component: Events,
+        canActivate: [authGuard]
       }
     ]
   }

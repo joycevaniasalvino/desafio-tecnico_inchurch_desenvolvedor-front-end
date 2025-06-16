@@ -44,27 +44,38 @@ export class Cadastro {
       return;
     }
 
-    const isLocalData = localStorage.getItem("angular18Local");
+    const isLocalData = localStorage.getItem("usuariosCadastrados");
     if(isLocalData !== null){
 
       const users = JSON.parse(isLocalData);
-      const isUsuarioEmailEncontrado : boolean = users.some((user: any) => user.email === this.userCadastroObj.email)
+
+      const isUsuarioEmailEncontrado : boolean = users.some((user: any) => user.email === this.userCadastroObj.email);
 
       if(isUsuarioEmailEncontrado){
         this.toastr.info('Usuário já cadastrado no sistema')
       } else {
         const localArray = JSON.parse(isLocalData);
         localArray.push(this.userCadastroObj);
-        localStorage.setItem("angular18Local", JSON.stringify(localArray))
+        localStorage.setItem("usuariosCadastrados", JSON.stringify(localArray));
 
-        this.toastr.success('Cadastro bem-sucedido')
-        this.router.navigate(['/events'])
+        localStorage.setItem(
+            'usuarioLogado',
+            JSON.stringify(this.userCadastroObj)
+          );
+
+        this.toastr.success('Cadastro bem-sucedido');
+        this.router.navigate(['/events']);
       }
 
     } else{
       const localArray = [];
       localArray.push(this.userCadastroObj);
-      localStorage.setItem("angular18Local", JSON.stringify(localArray))
+      localStorage.setItem("usuariosCadastrados", JSON.stringify(localArray))
+
+      localStorage.setItem(
+            'usuarioLogado',
+            JSON.stringify(this.userCadastroObj)
+          );
 
       this.toastr.success('Cadastro bem-sucedido')
       this.router.navigate(['/events'])
