@@ -9,6 +9,11 @@
       <div>
         <label for="email">Email:</label>
         <input required name="email" [(ngModel)]="userLoginObj.email" type="email" placeholder="Digite seu email">
+        @if(submitLoginTentado && !userLoginObj.email){
+          <p class="mensagem-erro">
+            Campo email é obrigatório.
+          </p>
+        }
       </div>
 
       <div class="box-senha">
@@ -48,13 +53,17 @@
           </svg>
           }
         </span>
-
+        @if(submitLoginTentado && !userLoginObj.senha){
+          <p class="mensagem-erro">
+            Campo senha é obrigatório.
+          </p>
+        }
         <a class="esqueceuSenha" href="#">Esqueceu sua senha?</a>
       </div>
 
 
       <div>
-        <button [disabled]="!loginForm.form.valid" type="submit">Entrar</button>
+        <button type="submit">Entrar</button>
 
         <div class="box-cadastrar">
           <p>Não tem uma conta?</p>

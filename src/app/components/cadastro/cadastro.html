@@ -9,11 +9,17 @@
       <div>
         <label for="email">Email:</label>
         <input required name="email" [(ngModel)]="userCadastroObj.email" type="email" placeholder="Digite seu email">
+        @if(submitCadastroTentado && !userCadastroObj.email){
+          <p class="mensagem-erro">
+            Campo email é obrigatório.
+          </p>
+        }
       </div>
 
       <div class="box-senha">
         <label for="senha">Senha:</label>
-        <input required name="senha" [(ngModel)]="userCadastroObj.senha" [type]="mostrarSenhaCadastro ? 'text' : 'password'" placeholder="Digite sua senha">
+        <input required name="senha" [(ngModel)]="userCadastroObj.senha"
+          [type]="mostrarSenhaCadastro ? 'text' : 'password'" placeholder="Digite sua senha">
         <span id="toggleSenha" class="olho" (click)="alternarVisibilidadeSenhaCadastro()">
           @if (mostrarSenhaCadastro) {
           <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,9 +57,14 @@
 
           }
         </span>
-
-        <label for="senha">Confirme senha:</label>
-        <input required [type]="mostrarConfirmaSenhaCadastro ? 'text' : 'password'" placeholder="Repita sua senha">
+        @if(submitCadastroTentado && !userCadastroObj.senha){
+          <p class="mensagem-erro">
+            Campo senha é obrigatório.
+          </p>
+        }
+        <label for="confirmaSenha">Confirme senha:</label>
+        <input name="confirmaSenha" required [(ngModel)]="userConfirmaSenha.confirmaSenha"
+          [type]="mostrarConfirmaSenhaCadastro ? 'text' : 'password'" placeholder="Repita sua senha">
         <span id="toggleSenha" class="olhoConfirmaSenha" (click)="alternarVisibilidadeConfirmarSenhaCadastro()">
           @if (mostrarConfirmaSenhaCadastro) {
           <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -91,13 +102,23 @@
 
           }
         </span>
+        @if(submitCadastroTentado && !userConfirmaSenha.confirmaSenha){
+          <p class="mensagem-erro">
+            Campo confirme senha é obrigatório.
+          </p>
+        }
+        @if(userConfirmaSenha.confirmaSenha && userCadastroObj.senha !== userConfirmaSenha.confirmaSenha){
+          <p class="mensagem-erro">
+            As senhas não coincidem
+          </p>
+        }
       </div>
 
 
       <div>
-        <button [disabled]="!cadastroForm.form.valid" type="submit">Cadastrar</button>
+        <button type="submit">Cadastrar</button>
 
-        <div class="box-cadastrar">
+        <div class="box-login">
           <p>Já tem uma conta?</p>
           <a (click)="irParaLogin()">Entre</a>
         </div>

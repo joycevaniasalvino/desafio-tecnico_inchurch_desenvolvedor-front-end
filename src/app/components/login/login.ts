@@ -1,28 +1,40 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  standalone: true,
   selector: 'app-login',
+  standalone: true,
   imports: [FormsModule],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
 export class Login {
-  mostrarSenha: boolean = false;
-  alternarVisibilidadeSenha() {
-    this.mostrarSenha = !this.mostrarSenha;
-  }
+  submitLoginTentado = false;
 
-  router = inject(Router); // injeção de dependencia
+  mostrarSenha: boolean = false;
 
   userLoginObj: any = {
     email: '',
     senha: ''
   }
 
+  router = inject(Router);
+  toastr = inject(ToastrService);
+
+  alternarVisibilidadeSenha() {
+    this.mostrarSenha = !this.mostrarSenha;
+  }
+
   login(){
+    this.submitLoginTentado = true;
+
+    if(!this.formularioValido()){
+      this.toastr.error("Formulário inválido. Verifique os campos.")
+      return;
+    }
+
     const isLocalData = localStorage.getItem("angular18Local");
 
     if(isLocalData !== null){
@@ -32,15 +44,16 @@ export class Login {
 
       if(isUsuarioEmailEncontrado){
         if(users.some((user: any) => user.senha === this.userLoginObj.senha)){
-          this.router.navigateByUrl('events')
+          this.toastr.success("Login realizado!")
+          this.router.navigate(['/events'])
         }else {
-        alert("Senha incorreta")
+        this.toastr.error("Senha incorreta.");
       }
       } else {
-        alert("Usuário não cadastrado")
+        this.toastr.warning("Usuário não cadastrado")
       }
     }else {
-      alert("Nenhum usuário encontrado")
+      this.toastr.error("Nenhum usuário encontrado")
     }
   }
 
@@ -48,5 +61,12 @@ export class Login {
     this.router.navigate(['/cadastro']);
   }
 
+  private formularioValido(): boolean {
+    const { email, senha } = this.userLoginObj;
 
+    return (
+      email.trim() !== '' &&
+      senha.trim() !== ''
+    );
+  }
 }

@@ -45,6 +45,7 @@ a {
   font-size: 700;
 
   text-decoration: none;
+  cursor: pointer;
 }
 
 a:hover{
@@ -98,12 +99,22 @@ div > button {
 
   color: #ffffff;
 
+  cursor: pointer;
 
 }
 
-.box-cadastrar{
+div > button:disabled{
+  cursor: not-allowed;
+}
+
+.box-login{
   display: flex;
   justify-content: space-around;
+}
+
+div > .mensagem-erro {
+  color: #FF002F;
+  font-size: 15px;
 }
 
 @media (max-width: 1024px) {
@@ -151,7 +162,7 @@ div > button {
     width: 270px;
   }
 
-  .box-cadastrar{
+  .box-login{
     flex-direction: column;
     align-items: center;
   }
