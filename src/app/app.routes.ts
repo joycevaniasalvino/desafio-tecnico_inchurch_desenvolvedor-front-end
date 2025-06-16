@@ -2,18 +2,33 @@ import { Routes } from '@angular/router';
 import { Home } from './components/home/home';
 import { Login } from './components/login/login';
 import { Events } from './components/events/events';
+import { Cadastro } from './components/cadastro/cadastro';
 
 export const routes: Routes = [
   {
-    path: "",
-    component: Login
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
   },
   {
-    path: "home",
-    component: Home
+    path: 'login',
+    component: Login,
+    data: { modo: 'login' }
   },
   {
-    path: "events",
-    component: Events
+    path: 'cadastro',
+    component: Cadastro,
+    data: { modo: 'cadastro' }
+  },
+  {
+    path: '',
+    component: Home,
+    children: [
+      {
+        path: 'events',
+        component: Events
+      }
+    ]
   }
+
 ];

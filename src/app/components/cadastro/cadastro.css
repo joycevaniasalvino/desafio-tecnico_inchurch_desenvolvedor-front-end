@@ -20,7 +20,7 @@
   width: 428px;
 }
 
-.box-formLogin{
+.box-formCadastro{
   margin: auto 0;
 }
 
@@ -29,13 +29,13 @@ form > div {
   flex-direction: column;
 }
 
-.box-formLogin > h1 {
+.box-formCadastro > h1 {
   font-size: 48px;
 
   padding-bottom: 50px;
 }
 
-.box-formLogin > h1, div > label, div > p{
+.box-formCadastro > h1, div > label, div > p{
   color: #223744;
   font-weight: 700;
 }
@@ -111,11 +111,11 @@ div > button {
     flex-direction: column;
   }
 
-  .box-logo, .box-formLogin{
+  .box-logo, .box-formCadastro{
     margin: auto;
   }
 
-  .box-formLogin{
+  .box-formCadastro{
     padding-bottom: 20px;
   }
 
@@ -123,7 +123,7 @@ div > button {
     margin-top: 30px;
   }
 
-  .box-formLogin > h1 {
+  .box-formCadastro > h1 {
     padding-bottom: 15px;
   }
 }
@@ -133,7 +133,7 @@ div > button {
     width: 359px;
   }
 
-  .box-formLogin > h1 {
+  .box-formCadastro > h1 {
     font-size: 40px;
   }
 }
@@ -143,7 +143,7 @@ div > button {
     width: 263px;
   }
 
-  .box-formLogin > h1 {
+  .box-formCadastro > h1 {
     font-size: 36px;
   }
 
