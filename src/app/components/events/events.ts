@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-events',
-  imports: [],
+  imports: [MatIconModule],
   templateUrl: './events.html',
   styleUrl: './events.css'
 })
