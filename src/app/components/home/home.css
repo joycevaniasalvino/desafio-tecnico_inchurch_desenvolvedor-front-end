@@ -113,13 +113,14 @@ option {
     right: 0;
     bottom: 0;
 
-    display: flex;
+    display: none;
     justify-content: end;
     align-items: start;
 
-    z-index: 1000;
+}
 
-    display: none;
+.modal-overlay.show {
+  display: flex;
 }
 
 .modal {
@@ -148,8 +149,8 @@ option {
 }
 
 .modal > button {
-  margin-top: 10px;
-  text-align: end;
+  margin-top: 20px;
+  width: 30px;
   border: none;
   background-color: #ffffff;
   cursor: pointer;
@@ -161,10 +162,6 @@ option {
 
 .modal > button > svg:hover {
   fill: #86BD00;
-}
-
-.modal-overlay.show {
-  display: flex;
 }
 
 .close-modal {
