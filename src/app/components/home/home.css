@@ -98,6 +98,7 @@ option {
 
 .contaUsuario > p {
   color: #223744;
+  font-size: 16px;
 }
 
 .contaUsuario > button {
@@ -169,6 +170,7 @@ option {
   top: 8px;
   right: 10px;
   cursor: pointer;
+  font-size: 30px;
 }
 
 .close-modal:hover{
