@@ -73,7 +73,6 @@ option {
 
 }
 
-
 .portalCliente{
   font-size: 14px;
   color: #91A0AA;
@@ -133,6 +132,8 @@ option {
 
   display: flex;
   flex-direction: column;
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -140,6 +141,10 @@ option {
   text-decoration: none;
   cursor: not-allowed;
   color: #223744;
+}
+
+.modal > p:hover {
+  color: #86BD00;
 }
 
 .modal > button {
@@ -154,15 +159,23 @@ option {
   fill: #223744;
 }
 
+.modal > button > svg:hover {
+  fill: #86BD00;
+}
+
 .modal-overlay.show {
   display: flex;
 }
 
-.close-btn {
+.close-modal {
   position: absolute;
   top: 8px;
   right: 10px;
   cursor: pointer;
+}
+
+.close-modal:hover{
+  color: #FE0034;
 }
 
 .sidebar {
