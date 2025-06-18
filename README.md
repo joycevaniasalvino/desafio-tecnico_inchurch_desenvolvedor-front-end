@@ -35,7 +35,7 @@ Este desafio tem como objetivo avaliar habilidades com Angular e desenvolvimento
 
 ## Vale destacar 
 
-### Foram utilizado o Trello, para gerenciamento de tarefas com Kanban com mais eficiência e organização, e o Figma para desenhar o layout das telas de Login de Cadastro.
+### Foram utilizados o Trello, para gerenciamento de tarefas com Kanban com mais eficiência e organização, e o Figma para desenhar o layout das telas de Login de Cadastro.
 
 ![Trello](src/assets/prints/trello.png)
 ![Figma](src/assets/prints/figma.png)
