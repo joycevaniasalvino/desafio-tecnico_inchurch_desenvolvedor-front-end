@@ -17,7 +17,7 @@ export class Login {
 
   mostrarSenha: boolean = false;
 
-  userLoginObj: any = {
+  userLoginObj: User = {
     email: '',
     senha: ''
   }
@@ -68,7 +68,7 @@ export class Login {
         }
       },
       error: () => {
-        this.toastr.error("Nenhum usuário encontrado")
+        this.toastr.error("Erro ao acessar a API")
       }
     })
   }

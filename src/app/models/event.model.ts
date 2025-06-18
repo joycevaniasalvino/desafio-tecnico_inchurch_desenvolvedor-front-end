@@ -1,5 +1,5 @@
 export interface Event {
-  id: number,
+  id?: string,
   imgCard: string,
   titulo: string,
   status: string,

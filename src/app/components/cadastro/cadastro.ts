@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { User } from '../../models/user.model';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -16,7 +18,7 @@ export class Cadastro {
   mostrarSenhaCadastro: boolean = false;
   mostrarConfirmaSenhaCadastro: boolean = false;
 
-  userCadastroObj: any = {
+  userCadastroObj: User = {
     email: '',
     senha: ''
   }
@@ -27,6 +29,7 @@ export class Cadastro {
 
   router = inject(Router);
   toastr = inject(ToastrService);
+  userService = inject(UserService);
 
   alternarVisibilidadeSenhaCadastro() {
     this.mostrarSenhaCadastro = !this.mostrarSenhaCadastro;
@@ -45,42 +48,23 @@ export class Cadastro {
     }
 
     const isLocalData = localStorage.getItem("usuariosCadastrados");
-    if(isLocalData !== null){
-
-      const users = JSON.parse(isLocalData);
-
+    this.userService.getUsuarios().subscribe(users => {
       const isUsuarioEmailEncontrado : boolean = users.some((user: any) => user.email === this.userCadastroObj.email);
 
       if(isUsuarioEmailEncontrado){
-        this.toastr.info('Usuário já cadastrado no sistema')
+        this.toastr.info('Usuário já cadastrado no sistema.')
       } else {
-        const localArray = JSON.parse(isLocalData);
-        localArray.push(this.userCadastroObj);
-        localStorage.setItem("usuariosCadastrados", JSON.stringify(localArray));
-
-        localStorage.setItem(
+        this.userService.addUsuario(this.userCadastroObj).subscribe(novoUsuario => {
+          localStorage.setItem(
             'usuarioLogado',
-            JSON.stringify(this.userCadastroObj)
+            JSON.stringify(novoUsuario)
           );
 
-        this.toastr.success('Cadastro bem-sucedido');
-        this.router.navigate(['/events']);
+          this.toastr.success('Cadastro bem-sucedido');
+          this.router.navigate(['/events']);
+        })
       }
-
-    } else{
-      const localArray = [];
-      localArray.push(this.userCadastroObj);
-      localStorage.setItem("usuariosCadastrados", JSON.stringify(localArray))
-
-      localStorage.setItem(
-            'usuarioLogado',
-            JSON.stringify(this.userCadastroObj)
-          );
-
-      this.toastr.success('Cadastro bem-sucedido')
-      this.router.navigate(['/events'])
-    }
-
+    })
   }
 
   irParaLogin() {
