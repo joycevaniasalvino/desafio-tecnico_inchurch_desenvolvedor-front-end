@@ -302,8 +302,7 @@
   align-items: center;
 }
 
-
-.item:hover {
+.itemParBackground {
   background-color: #F5F7FA;
 }
 

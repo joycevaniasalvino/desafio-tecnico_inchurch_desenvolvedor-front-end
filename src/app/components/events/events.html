@@ -155,7 +155,7 @@
       </div>
       <div class="itens-tabela">
         @for (event of events; track event.id) {
-        <div class="item">
+        <div class="item" [ngClass]="{ 'itemParBackground': event.id % 2 === 0 }">
           <div class="conteudo-tabela">
             <div class="item-img-titulo">
               <img [src]="event.imgCard" alt="Capa do evento">
