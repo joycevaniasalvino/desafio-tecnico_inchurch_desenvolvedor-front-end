@@ -3,12 +3,16 @@
     {
       "id": "1",
       "email": "admin@admin.com",
-      "senha": "admin"
+      "senha": "admin",
+      "imgUser" : "",
+      "nome": "Wiliane Martins"
     },
     {
       "id": "5876",
       "email": "fulano@email.com",
-      "senha": "full"
+      "senha": "full",
+      "imgUser" : "exemplo-img-usuario.jpg",
+      "nome": "Mariana Luther"
     }
   ],
   "eventos": [
