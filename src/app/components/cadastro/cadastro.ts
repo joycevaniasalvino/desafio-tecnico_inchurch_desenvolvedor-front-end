@@ -47,7 +47,6 @@ export class Cadastro {
       return;
     }
 
-    const isLocalData = localStorage.getItem("usuariosCadastrados");
     this.userService.getUsuarios().subscribe(users => {
       const isUsuarioEmailEncontrado : boolean = users.some((user: any) => user.email === this.userCadastroObj.email);
 

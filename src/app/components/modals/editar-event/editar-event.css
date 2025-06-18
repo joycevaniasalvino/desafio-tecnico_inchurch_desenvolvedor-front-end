@@ -1,0 +1,72 @@
+.modalEditOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.308);
+    display: none;
+    justify-content: end;
+    align-items: start;
+
+}
+
+.modalEditOverlay.show {
+  display: flex;
+}
+
+.modalEditar {
+  background-color: #ffffff;
+  padding: 2rem;
+  margin-top: 45px;
+  border-radius: 8px;
+  width: 600px;
+  height: 600px;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+
+.modalEditar > p {
+  text-decoration: none;
+  cursor: not-allowed;
+  color: #223744;
+}
+
+.modalEditar > p:hover {
+  color: #86BD00;
+}
+
+.modalEditar > button {
+  margin-top: 20px;
+  width: 30px;
+  border: none;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.modalEditar > button > svg {
+  fill: #223744;
+}
+
+.modalEditar > button > svg:hover {
+  fill: #86BD00;
+}
+
+.close-modalEditar {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.close-modalEditar:hover{
+  color: #FE0034;
+}

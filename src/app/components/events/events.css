@@ -125,7 +125,7 @@
 
   border: none;
   border-radius: 10px;
-  cursor: pointer;
+  cursor: not-allowed;
 }
 
 .btn-novo:hover {
@@ -146,7 +146,7 @@
   padding: 20px 0;
 }
 
-.card {
+.conteudoCard {
   width: 310px;
   height: 280px;
 
@@ -160,7 +160,7 @@
   cursor: pointer;
 }
 
-.card:hover {
+.conteudoCard:hover {
   background-color: #F5F7FA;
 }
 
@@ -168,7 +168,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, auto);
-  gap: 16px;
+  gap: 5px;
 }
 
 .img-p {
@@ -429,9 +429,15 @@
   background-color: #eeeef0;
 }
 
-@media (min-width: 1024px) and (max-width: 1440px) {
-  .card {
-    width: 270px;
+.card-visualizacao > div {
+
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1440px) {
+  .conteudoCard {
+    width: 240px;
     height: 280px;
 
     background-color: #ffffff;
@@ -441,4 +447,32 @@
     display: grid;
     grid-template-rows: repeat(2, 1fr);
   }
+
 }
+
+@media (min-width: 880px) and (max-width: 1024px){
+  .card-visualizacao {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+}
+
+@media (min-width: 425px) and (max-width: 880px){
+
+  .barra-events {
+  display: flex;
+
+flex-direction: column;  background-color: #ffffff;
+
+  padding: 15px 20px;
+  margin-top: 5px;
+
+  border-radius: 10px;
+}
+
+  .card-visualizacao {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+}
+

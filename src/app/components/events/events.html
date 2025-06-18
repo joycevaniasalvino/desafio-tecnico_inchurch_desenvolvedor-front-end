@@ -168,46 +168,56 @@
               <p>{{ event.data }} às {{ event.hora }}</p>
             </div>
             <div class="btns-item-tabela">
-              <button>
+              <button (click)="abrirModal()">
                 <mat-icon class="icon-btn edit">edit</mat-icon>
               </button>
               <button>
                 <mat-icon class="icon-btn delete">delete</mat-icon>
               </button>
             </div>
+
           </div>
         </div>
+        <app-editar-event [propsDadosEvent]="event"></app-editar-event>
+
         }
       </div>
+
     </div>
     } @else {
     <div class="card-visualizacao">
       @for (event of events; track event.id) {
-      <div class="card">
-        <div class="img-p">
-          <img [src]="event.imgCard" alt="Capa do evento">
-          <p>{{ event.status }}</p>
-        </div>
-        <div class="card-evento">
-          <p class="titulo-card">{{ event.titulo }}</p>
+      <div>
+        <div class="conteudoCard">
+          <div class="img-p">
+            <img [src]="event.imgCard" alt="Capa do evento">
+            <p>{{ event.status }}</p>
+          </div>
+          <div class="card-evento">
+            <p class="titulo-card">{{ event.titulo }}</p>
 
-          <div class="info-btns">
-            <div>
-              <p class="p-publicado">Publicado em</p>
-              <p class="data-hora">{{ event.data }} às {{ event.hora }}</p>
-            </div>
-            <div class="btns-evento">
-              <button>
-                <mat-icon class="icon-btn edit">edit</mat-icon>
-              </button>
-              <button>
-                <mat-icon class="icon-btn delete">delete</mat-icon>
-              </button>
+            <div class="info-btns">
+              <div>
+                <p class="p-publicado">Publicado em</p>
+                <p class="data-hora">{{ event.data }} às {{ event.hora }}</p>
+              </div>
+              <div class="btns-evento">
+                <button (click)="abrirModal()">
+                  <mat-icon class="icon-btn edit">edit</mat-icon>
+                </button>
+                <button>
+                  <mat-icon class="icon-btn delete">delete</mat-icon>
+                </button>
+              </div>
             </div>
           </div>
         </div>
+
+        <app-editar-event [propsDadosEvent]="event"></app-editar-event>
+
       </div>
       }
+
     </div>
     }
 

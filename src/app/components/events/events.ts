@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { Event } from '../../models/event.model';
 import { EventService } from '../../services/event.service';
+import { EditarEvent } from "../modals/editar-event/editar-event";
 
 @Component({
   selector: 'app-events',
-  imports: [MatIconModule, CommonModule],
+  imports: [MatIconModule, CommonModule, EditarEvent],
   templateUrl: './events.html',
   styleUrl: './events.css'
 })
@@ -73,6 +74,11 @@ export class Events {
 
     return visiveis;
   }
+
+  abrirModal() {
+    document.getElementById("modalEditOverlay")!.classList.add("show");
+  }
+
 
 
   private loadEvents() {

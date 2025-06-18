@@ -17,7 +17,7 @@ export class EventService {
     return this.httpClient.get<Event[]>(`${API_URL}/eventos`);
   }
 
-  getEventoId(id: string): Observable<Event> {
+  getEventoId(id: string | undefined): Observable<Event> {
     return this.httpClient.get<Event>(`${API_URL}/eventos/${id}`);
   }
 

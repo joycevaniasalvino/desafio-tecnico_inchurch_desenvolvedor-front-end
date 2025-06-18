@@ -1,0 +1,21 @@
+<div id="modalEditOverlay" class="modalEditOverlay">
+  <div class="modalEditar">
+    <span class="close-modalEditar" (click)="fecharModalEditDireto()">×</span>
+
+    <form (ngSubmit)="editarEvent(propsDadosEvent)">
+      <div>
+        <label for="titulo">Título</label>
+        <input name="titulo" [defaultValue]="propsDadosEvent.titulo" [(ngModel)]="eventEditObj.titulo" type="text">
+      </div>
+
+      <div>
+        <label for="status">Status</label>
+        <input name="status" [defaultValue]="propsDadosEvent.status" [(ngModel)]="eventEditObj.status" type="text">
+      </div>
+
+      <div>
+        <button type="submit">Cadastrar</button>
+      </div>
+    </form>
+  </div>
+</div>
