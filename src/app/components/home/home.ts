@@ -1,5 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
+import { UserService } from '../../services/user.service';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +11,24 @@ import { Router, RouterOutlet } from '@angular/router';
 })
 export class Home {
   router = inject(Router);
+
+  userService = inject(UserService);
+  users: User | null = null;
+
+  userLogado: any;
+
+  ngOnInit() {
+    this.userLogado = localStorage.getItem('usuarioLogado');
+    if (this.userLogado) {
+      this.userLogado = JSON.parse(this.userLogado)
+
+      this.userService.getUsuarioId(this.userLogado.id).subscribe((data) => {
+        this.users = data;
+      });
+
+    }
+
+  }
 
   logout() {
     localStorage.removeItem('usuarioLogado');

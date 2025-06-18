@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 
 import { API_URL } from '../../../api';
 import { Event } from '../models/event.model';
@@ -32,4 +32,15 @@ export class EventService {
   deleteEvento(id: string): Observable<any> {
     return this.httpClient.delete(`${API_URL}/eventos/${id}`);
   }
+
+  getEventosComLimites(pagina: number, limite: number): Observable<{ eventos: Event[] }> {
+    return this.httpClient.get<Event[]>(`${API_URL}/eventos?_page=${pagina}&_limit=${limite}`, {
+      observe: 'response'
+    }).pipe(
+      map(response => ({
+        eventos: response.body || [],
+      }))
+    );
+  }
+
 }

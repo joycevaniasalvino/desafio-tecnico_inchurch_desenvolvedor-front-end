@@ -357,6 +357,44 @@
   width: 100%;
 }
 
+.paginacao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.paginacao button {
+  border: none;
+  padding: 5px 10px;
+  background-color: transparent;
+  border-radius: 100%;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.paginacao button:hover {
+  background-color: #91A0AA;
+}
+
+.paginacao button.ativo {
+  background-color: #86BD00;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.paginacao button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn-icon-seta {
+  font-size: 30px;
+  height: 25px;
+  width: 20px;
+}
+
 .visualizacao {
   position: absolute;
   right: 20px;

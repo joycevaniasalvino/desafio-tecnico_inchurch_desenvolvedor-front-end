@@ -43,7 +43,7 @@
 
     <div class="pesquisa-btns">
       <div class="input-pesquisa">
-        <input type="text">
+        <input name="pesquisa" type="text">
         <svg width="40px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 
           <g id="SVGRepo_bgCarrier" stroke-width="0" />
@@ -155,7 +155,7 @@
       </div>
       <div class="itens-tabela">
         @for (event of events; track event.id) {
-        <div class="item" [ngClass]="{ 'itemParBackground': event.id % 2 === 0 }">
+        <div class="item" [ngClass]="{ 'itemParBackground': isIdPar(event.id) }">
           <div class="conteudo-tabela">
             <div class="item-img-titulo">
               <img [src]="event.imgCard" alt="Capa do evento">
@@ -216,7 +216,24 @@
 
   <div class="paginacao-visualizacao">
     <div class="paginacao">
-      <p>paginação</p>
+      <button class="btn-seta" (click)="irParaPagina(paginaAtual - 1)" [disabled]="paginaAtual === 1">
+        <mat-icon class="btn-icon-seta">arrow_left</mat-icon>
+      </button>
+      @for (pagina of paginasVisiveis; track $index) {
+        <button
+          [class.ativo]="pagina === paginaAtual"
+          (click)="irParaPagina(pagina)"
+          [disabled]="pagina === '...'">
+          {{ pagina }}
+        </button>
+      }
+      <button class="btn-seta"
+        (click)="irParaPagina(paginaAtual + 1)"
+        [disabled]="paginaAtual >= totalPaginas"
+
+      >
+        <mat-icon class="btn-icon-seta">arrow_right</mat-icon>
+      </button>
     </div>
 
     <div class="visualizacao">
