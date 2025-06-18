@@ -32,6 +32,14 @@ Este desafio tem como objetivo avaliar habilidades com Angular e desenvolvimento
 ![Tela login](src/assets/prints/login-mobile.png)&nbsp;&nbsp;
 ![Tela cadastro](src/assets/prints/cadastro-mobile.png)&nbsp;&nbsp;
 
+
+## Vale destacar 
+
+### Foram utilizado o Trello, para gerenciamento de tarefas com Kanban com mais eficiência e organização, e o Figma para desenhar o layout das telas de Login de Cadastro.
+
+![Trello](src/assets/prints/trello.png)
+![Figma](src/assets/prints/figma.png)
+
 ## Requisitos para rodar o projeto
 
 - Node.js
