@@ -19,12 +19,6 @@ export class Home {
     document.getElementById("modalOverlay")!.classList.add("show");
   }
 
-  fecharModal(event:any) {
-    if (event.target.id === "modalOverlay") {
-      event.currentTarget.classList.remove("show");
-    }
-  }
-
   fecharModalDireto() {
     document.getElementById("modalOverlay")!.classList.remove("show");
   }
