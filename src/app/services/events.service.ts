@@ -17,7 +17,7 @@ export class EventService {
     return this.httpClient.get<Event[]>(`${API_URL}/eventos`);
   }
 
-  getEventoId(id: number): Observable<Event> {
+  getEventoId(id: string): Observable<Event> {
     return this.httpClient.get<Event>(`${API_URL}/eventos/${id}`);
   }
 
@@ -29,7 +29,7 @@ export class EventService {
     return this.httpClient.put<Event>(`${API_URL}/eventos/${event.id}`, event);
   }
 
-  deleteEvento(id: number): Observable<any> {
+  deleteEvento(id: string): Observable<any> {
     return this.httpClient.delete(`${API_URL}/eventos/${id}`);
   }
 }

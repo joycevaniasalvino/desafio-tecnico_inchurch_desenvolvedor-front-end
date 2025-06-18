@@ -17,7 +17,7 @@ export class UserService {
     return this.httpClient.get<User[]>(`${API_URL}/usuarios`);
   }
 
-  getUsuarioId(id: number): Observable<User> {
+  getUsuarioId(id: string): Observable<User> {
     return this.httpClient.get<User>(`${API_URL}/usuarios/${id}`);
   }
 
@@ -29,7 +29,7 @@ export class UserService {
     return this.httpClient.put<User>(`${API_URL}/usuarios/${user.id}`, user);
   }
 
-  deleteUsuario(id: number): Observable<any> {
+  deleteUsuario(id: string): Observable<any> {
     return this.httpClient.delete(`${API_URL}/usuarios/${id}`);
   }
 }

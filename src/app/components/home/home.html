@@ -136,7 +136,7 @@
                   />
                 <path fill-rule="evenodd" clip-rule="evenodd"
                   d="M12.0244 2.00003L12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.74235 17.9425 2.43237 12.788 2.03059L12.7886 2.0282C12.5329 2.00891 12.278 1.99961 12.0244 2.00003ZM12 20C16.4183 20 20 16.4183 20 12C20 11.3014 19.9105 10.6237 19.7422 9.97775C16.1597 10.2313 12.7359 8.52461 10.7605 5.60246C9.31322 7.07886 7.2982 7.99666 5.06879 8.00253C4.38902 9.17866 4 10.5439 4 12C4 16.4183 7.58172 20 12 20ZM11.9785 4.00003L12.0236 4.00003L12 4L11.9785 4.00003Z"
-                   />
+                  />
               </g>
 
             </svg>
@@ -239,8 +239,8 @@
           <p class="portalCliente">Portal do cliente</p>
 
           <div class="contaUsuario">
-            <img src="exemplo-img-usuario.jpg" alt="Imagem usuário exemplo">
-            <p>Sara Paulson</p>
+            <img [src]="users?.imgUser ? users?.imgUser : 'userDefault.jpg'" alt="Imagem usuário exemplo">
+            <p>{{ users?.nome }}</p>
 
             <button class="btn-modal" (click)="abrirModal()">
               <svg width="20px" height="20px" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
