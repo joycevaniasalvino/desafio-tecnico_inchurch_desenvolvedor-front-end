@@ -336,3 +336,28 @@ footer > p {
   top: 0;
   right: 5px;
 }
+
+@media (max-width: 1440px) {
+  .layout {
+    padding: 0 5px;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 880px){
+  header  {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .infoHeader {
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 425px) {
+  header  {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+}
