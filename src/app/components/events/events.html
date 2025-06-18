@@ -102,7 +102,7 @@
 
       <button (click)="trocarVisualizacao()" title="Trocar visualização" class="btn-visualizacao">
         @if (isTabela) {
-          <svg width="25px" height="25px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="25px" height="25px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 
           <g id="SVGRepo_bgCarrier" stroke-width="0" />
 
@@ -125,7 +125,7 @@
 
         </svg>
         } @else {
-          <mat-icon class="icon-btn">format_list_bulleted</mat-icon>
+        <mat-icon class="icon-btn">format_list_bulleted</mat-icon>
         }
       </button>
 
@@ -154,17 +154,18 @@
         </div>
       </div>
       <div class="itens-tabela">
+        @for (event of events; track event.id) {
         <div class="item">
           <div class="conteudo-tabela">
             <div class="item-img-titulo">
-              <img src="exemplo-img-event.jpg" alt="Capa do evento">
-              <p>Evento tal</p>
+              <img [src]="event.imgCard" alt="Capa do evento">
+              <p>{{ event.titulo }}</p>
             </div>
             <div class="item-conteudo">
-              <p>Sem ingressos ativos</p>
+              <p>{{ event.status }}</p>
             </div>
             <div class="item-publicado">
-              <p>21/09/2021 às 19h00</p>
+              <p>{{ event.data }} às {{ event.hora }}</p>
             </div>
             <div class="btns-item-tabela">
               <button>
@@ -176,22 +177,24 @@
             </div>
           </div>
         </div>
+        }
       </div>
     </div>
     } @else {
     <div class="card-visualizacao">
+      @for (event of events; track event.id) {
       <div class="card">
         <div class="img-p">
-          <img src="exemplo-img-event.jpg" alt="Capa do evento">
-          <p>Sem ingressos ativos</p>
+          <img [src]="event.imgCard" alt="Capa do evento">
+          <p>{{ event.status }}</p>
         </div>
         <div class="card-evento">
-          <p class="titulo-card">titulo</p>
+          <p class="titulo-card">{{ event.titulo }}</p>
 
           <div class="info-btns">
             <div>
               <p class="p-publicado">Publicado em</p>
-              <p class="data-hora">21/09/2021 às 19h00</p>
+              <p class="data-hora">{{ event.data }} às {{ event.hora }}</p>
             </div>
             <div class="btns-evento">
               <button>
@@ -204,6 +207,7 @@
           </div>
         </div>
       </div>
+      }
     </div>
     }
 
@@ -218,36 +222,36 @@
     <div class="visualizacao">
       <button (click)="trocarVisualizacao()" class="btn-troca-visualizacao">
         @if (isTabela) {
-          <div class="icon-p">
-            <svg width="25px" height="25px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="icon-p">
+          <svg width="25px" height="25px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 
-          <g id="SVGRepo_bgCarrier" stroke-width="0" />
+            <g id="SVGRepo_bgCarrier" stroke-width="0" />
 
-          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
 
-          <g id="SVGRepo_iconCarrier">
-            <path
-              d="M19 3.32001H16C14.8954 3.32001 14 4.21544 14 5.32001V8.32001C14 9.42458 14.8954 10.32 16 10.32H19C20.1046 10.32 21 9.42458 21 8.32001V5.32001C21 4.21544 20.1046 3.32001 19 3.32001Z"
-              stroke="#91A0AA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            <path
-              d="M8 3.32001H5C3.89543 3.32001 3 4.21544 3 5.32001V8.32001C3 9.42458 3.89543 10.32 5 10.32H8C9.10457 10.32 10 9.42458 10 8.32001V5.32001C10 4.21544 9.10457 3.32001 8 3.32001Z"
-              stroke="#91A0AA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            <path
-              d="M19 14.32H16C14.8954 14.32 14 15.2154 14 16.32V19.32C14 20.4246 14.8954 21.32 16 21.32H19C20.1046 21.32 21 20.4246 21 19.32V16.32C21 15.2154 20.1046 14.32 19 14.32Z"
-              stroke="#91A0AA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            <path
-              d="M8 14.32H5C3.89543 14.32 3 15.2154 3 16.32V19.32C3 20.4246 3.89543 21.32 5 21.32H8C9.10457 21.32 10 20.4246 10 19.32V16.32C10 15.2154 9.10457 14.32 8 14.32Z"
-              stroke="#91A0AA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-          </g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M19 3.32001H16C14.8954 3.32001 14 4.21544 14 5.32001V8.32001C14 9.42458 14.8954 10.32 16 10.32H19C20.1046 10.32 21 9.42458 21 8.32001V5.32001C21 4.21544 20.1046 3.32001 19 3.32001Z"
+                stroke="#91A0AA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M8 3.32001H5C3.89543 3.32001 3 4.21544 3 5.32001V8.32001C3 9.42458 3.89543 10.32 5 10.32H8C9.10457 10.32 10 9.42458 10 8.32001V5.32001C10 4.21544 9.10457 3.32001 8 3.32001Z"
+                stroke="#91A0AA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M19 14.32H16C14.8954 14.32 14 15.2154 14 16.32V19.32C14 20.4246 14.8954 21.32 16 21.32H19C20.1046 21.32 21 20.4246 21 19.32V16.32C21 15.2154 20.1046 14.32 19 14.32Z"
+                stroke="#91A0AA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M8 14.32H5C3.89543 14.32 3 15.2154 3 16.32V19.32C3 20.4246 3.89543 21.32 5 21.32H8C9.10457 21.32 10 20.4246 10 19.32V16.32C10 15.2154 9.10457 14.32 8 14.32Z"
+                stroke="#91A0AA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
 
-        </svg>
+          </svg>
           <p>Ver tabela em cards</p>
-          </div>
+        </div>
         } @else {
-          <div class="icon-p">
-            <mat-icon class="icon-btn">format_list_bulleted</mat-icon>
-            <p>Ver tabela em lista</p>
-          </div>
+        <div class="icon-p">
+          <mat-icon class="icon-btn">format_list_bulleted</mat-icon>
+          <p>Ver tabela em lista</p>
+        </div>
         }
       </button>
     </div>
