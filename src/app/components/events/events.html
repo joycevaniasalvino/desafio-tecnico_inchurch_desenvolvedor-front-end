@@ -100,7 +100,7 @@
         </svg>
       </button>
 
-      <button class="btn-visualizacao">
+      <button (click)="trocarVisualizacao()" class="btn-visualizacao">
         <svg width="25px" height="25px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 
           <g id="SVGRepo_bgCarrier" stroke-width="0" />
@@ -133,6 +133,163 @@
   </div>
 
   <div class="eventos">
+    @if (isTabela) {
+    <div class="tabela-visualizacao">
+      <div class="cabecalho-tabela">
+        <div class="item-img-titulo">
+          <p>Título</p>
+        </div>
+        <div class="item-conteudo">
+          <p>Conteúdo</p>
+        </div>
+        <div class="item-publicado">
+          <p>Publicado em</p>
+        </div>
+        <div class="btns-item-tabela">
+          <p>Ações</p>
+        </div>
+      </div>
+      <div class="itens-tabela">
+        <div class="item">
+          <div class="conteudo-tabela">
+            <div class="item-img-titulo">
+              <img src="exemplo-img-event.jpg" alt="Capa do evento">
+              <p>Evento tal</p>
+            </div>
+            <div class="item-conteudo">
+              <p>Sem ingressos ativos</p>
+            </div>
+            <div class="item-publicado">
+              <p>21/09/2021 às 19h00</p>
+            </div>
+            <div class="btns-item-tabela">
+              <button>
+                <mat-icon class="icon-btn edit">edit</mat-icon>
+              </button>
+              <button>
+                <mat-icon class="icon-btn delete">delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="conteudo-tabela">
+            <div class="item-img-titulo">
+              <img src="exemplo-img-event.jpg" alt="Capa do evento">
+              <p>Evento tal</p>
+            </div>
+            <div class="item-conteudo">
+              <p>Sem ingressos ativos</p>
+            </div>
+            <div class="item-publicado">
+              <p>21/09/2021 às 19h00</p>
+            </div>
+            <div class="btns-item-tabela">
+              <button>
+                <mat-icon class="icon-btn edit">edit</mat-icon>
+              </button>
+              <button>
+                <mat-icon class="icon-btn delete">delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="conteudo-tabela">
+            <div class="item-img-titulo">
+              <img src="exemplo-img-event.jpg" alt="Capa do evento">
+              <p>Evento tal</p>
+            </div>
+            <div class="item-conteudo">
+              <p>Sem ingressos ativos</p>
+            </div>
+            <div class="item-publicado">
+              <p>21/09/2021 às 19h00</p>
+            </div>
+            <div class="btns-item-tabela">
+              <button>
+                <mat-icon class="icon-btn edit">edit</mat-icon>
+              </button>
+              <button>
+                <mat-icon class="icon-btn delete">delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="conteudo-tabela">
+            <div class="item-img-titulo">
+              <img src="exemplo-img-event.jpg" alt="Capa do evento">
+              <p>Evento tal</p>
+            </div>
+            <div class="item-conteudo">
+              <p>Sem ingressos ativos</p>
+            </div>
+            <div class="item-publicado">
+              <p>21/09/2021 às 19h00</p>
+            </div>
+            <div class="btns-item-tabela">
+              <button>
+                <mat-icon class="icon-btn edit">edit</mat-icon>
+              </button>
+              <button>
+                <mat-icon class="icon-btn delete">delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="conteudo-tabela">
+            <div class="item-img-titulo">
+              <img src="exemplo-img-event.jpg" alt="Capa do evento">
+              <p>Evento tal</p>
+            </div>
+            <div class="item-conteudo">
+              <p>Sem ingressos ativos</p>
+            </div>
+            <div class="item-publicado">
+              <p>21/09/2021 às 19h00</p>
+            </div>
+            <div class="btns-item-tabela">
+              <button>
+                <mat-icon class="icon-btn edit">edit</mat-icon>
+              </button>
+              <button>
+                <mat-icon class="icon-btn delete">delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="conteudo-tabela">
+            <div class="item-img-titulo">
+              <img src="exemplo-img-event.jpg" alt="Capa do evento">
+              <p>Evento tal</p>
+            </div>
+            <div class="item-conteudo">
+              <p>Sem ingressos ativos</p>
+            </div>
+            <div class="item-publicado">
+              <p>21/09/2021 às 19h00</p>
+            </div>
+            <div class="btns-item-tabela">
+              <button>
+                <mat-icon class="icon-btn edit">edit</mat-icon>
+              </button>
+              <button>
+                <mat-icon class="icon-btn delete">delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    } @else {
     <div class="card-visualizacao">
       <div class="card">
         <div class="img-p">
@@ -149,21 +306,37 @@
             </div>
             <div class="btns-evento">
               <button>
-                <mat-icon class="icon-btn" >edit</mat-icon>
+                <mat-icon class="icon-btn edit">edit</mat-icon>
               </button>
               <button>
-                <mat-icon class="icon-btn">delete</mat-icon>
+                <mat-icon class="icon-btn delete">delete</mat-icon>
               </button>
             </div>
           </div>
         </div>
       </div>
-
-
     </div>
+    }
+
+
   </div>
 
-  <div class="paginacao-eventos">
-    <p>paginação</p>
+  <div class="paginacao-visualizacao">
+    <div class="paginacao">
+      <p>paginação</p>
+    </div>
+
+    <div class="visualizacao">
+      <button (click)="trocarVisualizacao()" class="btn-troca-visualizacao">
+        @if (isTabela) {
+          <p>Ver tabela em cards</p>
+        } @else {
+          <div class="icon-p">
+            <mat-icon class="icon-btn">format_list_bulleted</mat-icon>
+            <p>Ver tabela em lista</p>
+          </div>
+        }
+      </button>
+    </div>
   </div>
 </div>

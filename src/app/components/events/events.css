@@ -65,7 +65,7 @@
   align-items: center;
 }
 
-.btn-visualizacao:hover  {
+.btn-visualizacao:hover, .pesquisa-btns > .btn:hover {
   background-color: #F5F7FA;
 }
 
@@ -156,6 +156,12 @@
 
   display: grid;
   grid-template-rows: repeat(2, 1fr);
+
+  cursor: pointer;
+}
+
+.card:hover {
+  background-color: #F5F7FA;
 }
 
 .card-visualizacao {
@@ -232,7 +238,7 @@
 }
 
 .btns-evento > button{
-  background-color: #ffffff;
+  background-color: transparent;
   border: none;
 
   cursor: pointer;
@@ -245,7 +251,104 @@
   width: 25px;
 }
 
-.paginacao-eventos {
+.edit:hover {
+  color: #86BD00;
+}
+
+.delete:hover {
+  color: #FE0032;
+}
+
+.tabela-visualizacao {
+  border-radius: 10px;
+  padding: 20px;
+
+  background-color: #ffffff;
+}
+
+.itens-tabela {
+  display: grid;
+  grid-template-rows: repeat(6, auto);
+}
+
+.item {
+  background-color: #ffffff;
+  cursor: pointer;
+
+  padding: 10px 0;
+}
+
+.item p {
+  font-size: 15px;
+}
+
+.item-img-titulo {
+  grid-column: span 5;
+
+  display: flex;
+  align-items: center;
+
+  column-gap: 15px;
+}
+
+.item-img-titulo > img {
+  width: 100px;
+  border-radius: 10px;
+}
+
+.item-conteudo, .item-publicado {
+  grid-column: 3 span;
+  display: flex;
+  align-items: center;
+}
+
+
+.item:hover {
+  background-color: #F5F7FA;
+}
+
+.cabecalho-tabela {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  column-gap: 15px;
+  padding-bottom: 10px;
+}
+
+.cabecalho-tabela p {
+  color: #223744;
+  font-size: 15px;
+}
+
+.conteudo-tabela {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  column-gap: 15px;
+}
+
+.conteudo-tabela p {
+  color: #91A0AA;
+}
+
+.btns-item-tabela {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  column-gap: 5px;
+
+  grid-column: span 1;
+}
+
+.btns-item-tabela > button{
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+}
+
+.paginacao-visualizacao {
   display: flex;
   justify-content: center;
 
@@ -253,6 +356,40 @@
 
   bottom: 10px;
   width: 100%;
+}
+
+.visualizacao {
+  position: absolute;
+  right: 20px;
+  bottom: -8px;
+}
+
+.visualizacao p {
+  font-size: 15px;
+  color: #91A0AA;
+}
+
+.icon-p {
+  display: flex;
+  flex-direction: row;
+
+  column-gap: 5px;
+
+  align-items: center;
+}
+
+.btn-troca-visualizacao {
+  padding: 10px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background-color: transparent;
+}
+
+.btn-troca-visualizacao:hover {
+  background-color: #eeeef0;
 }
 
 @media (min-width: 1024px) and (max-width: 1440px) {

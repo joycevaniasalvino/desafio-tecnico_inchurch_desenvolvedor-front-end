@@ -8,5 +8,9 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './events.css'
 })
 export class Events {
+  isTabela: boolean = false;
 
+  trocarVisualizacao() {
+    this.isTabela = !this.isTabela;
+  }
 }
